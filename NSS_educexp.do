@@ -16,7 +16,7 @@ keep if itemcode==409;
 
 gen district_code=state62*100+district62; 
 ****only keep rural ;
-keep if sector==1;
+
 
 sort state62; 
 
@@ -30,7 +30,7 @@ gen quart_st=1 if educ_exp<  173253.5 ;
 replace quart_st=2 if educ_exp>= 173253.5  &  educ_exp<258069.6  ;
 replace quart_st=3 if educ_exp>=258069.6  & educ_exp<  297703.3   ;
 replace quart_st=4 if educ_exp>=  297703.3  ;
-
+** I am adding this
 
 sort district_code; 
 by district_code:egen educ_exp_dist=mean(value6); 
@@ -46,13 +46,12 @@ replace quart_dis=4 if educ_exp>= 351218.8   ;
 
 
 keep district_code quart_st quart_dis educ_exp educ_exp_dist; 
-duplicates drop; 
 sort district_code;
 save "C:\Users\mbshah\Documents\ASER\Bryce paper\dta\Expenditure.dta", replace; 
 
 use "C:\Users\mbshah\Documents\ASER\Bryce paper\dta\ASER_rainfall_all.dta", replace; 
 drop _merge; 
-sort district_code; 
+
 merge district_code using "C:\Users\mbshah\Documents\ASER\Bryce paper\dta\Expenditure.dta"; 
 tab _merge; 
 drop if _merge~=3;
