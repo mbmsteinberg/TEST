@@ -32,6 +32,10 @@ replace quart_st=3 if educ_exp>=258069.6  & educ_exp<  297703.3   ;
 replace quart_st=4 if educ_exp>=  297703.3  ;
 ** I am adding this
 
+
+
+**Wait!  I am also adding this.
+
 sort district_code; 
 by district_code:egen educ_exp_dist=mean(value6); 
 
