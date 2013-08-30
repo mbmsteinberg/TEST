@@ -4,8 +4,8 @@ cap log close;
 cap program drop _all;
 set more 1;
 
-**Blockwood killed a slave!
-*Just kidding, he only maimed him.
+**mbmsteinberg killed a slave!
+*Just kidding, she only maimed him.
 
 use "C:\Users\mbshah\Documents\NSS\62\62\1\NSS_Round62_Schedule1_Level6.dta" ; 
 global dl = "C:\Users\mbshah\Documents\ASER\Bryce Paper\logs";
